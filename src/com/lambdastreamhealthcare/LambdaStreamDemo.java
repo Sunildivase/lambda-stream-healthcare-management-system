@@ -38,16 +38,8 @@ public class LambdaStreamDemo {
 
                 case 2:
                     DoctorService doctorService = new DoctorService();
-
-                    List<Doctor> doctors = doctorService.createDoctor();
-
-                    List<Integer> doctorList = doctors.stream()
-                                    .parallel()
-                                            .filter(doctor -> doctor.age() > 35 && doctor.experience() >= 5)
-                                                    .map(doctor -> doctor.age())
-                                                            .toList();
-
-                    System.out.println("doctors list: "+doctorList);
+                    doctorService.createDoctor();
+                    doctorService.displayDoctor();
                     System.out.println("doctor created successfully");
                     break;
 
@@ -84,18 +76,8 @@ public class LambdaStreamDemo {
 
                 case 7:
                     BillingService billingService = new BillingService();
-
-                    List<Billing> billings = billingService.createBill();
-
-//                    List<Billing> billings = new ArrayList<>();
-
-                    List<Integer> billingList = billings.stream()
-                                    .parallel()
-                                            .filter(billing -> billing.totalBill() > 5000 && billing.bill() >=300)
-                                                    .map(billing -> billing.totalBill())
-                                                            .toList();
-
-                    System.out.println("billing list: "+billingList);
+                    billingService.createBill();
+                    billingService.displayBill();
                     System.out.println("bill generated successfully");
                     break;
 

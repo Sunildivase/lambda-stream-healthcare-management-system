@@ -18,5 +18,22 @@ public class BillingService {
 
     }
 
+    public void displayBill(){
+
+        BillingService billingService = new BillingService();
+
+        List<Billing> billings = billingService.createBill();
+
+//                    List<Billing> billings = new ArrayList<>();
+
+        List<Integer> billingList = billings.stream()
+                .parallel()
+                .filter(billing -> billing.totalBill() > 5000 && billing.bill() >=300)
+                .map(billing -> billing.totalBill())
+                .toList();
+
+        System.out.println("billing list: "+billingList);
+    }
+
 
 }
